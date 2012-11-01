@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Connector:</b>
+  <%= @connectorize.connector %>
+</p>
+
+<p>
+  <b>Connectee1:</b>
+  <%= @connectorize.connectee1 %>
+</p>
+
+<p>
+  <b>Connectee2:</b>
+  <%= @connectorize.connectee2 %>
+</p>
+
+<p>
+  <b>Connector email:</b>
+  <%= @connectorize.connector_email %>
+</p>
+
+<p>
+  <b>Connectee1 email:</b>
+  <%= @connectorize.connectee1_email %>
+</p>
+
+<p>
+  <b>Connector2 email:</b>
+  <%= @connectorize.connector2_email %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @connectorize.reason %>
+</p>
+
+<p>
+  <b>Connectee1 accept:</b>
+  <%= @connectorize.connectee1_accept %>
+</p>
+
+<p>
+  <b>Connectee2 accept:</b>
+  <%= @connectorize.connectee2_accept %>
+</p>
+
+
+<%= link_to 'Edit', edit_connectorize_path(@connectorize) %> |
+<%= link_to 'Back', connectorizes_path %>

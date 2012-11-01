@@ -1,0 +1,39 @@
+<h1>Listing connectorizes</h1>
+
+<table>
+  <tr>
+    <th>Connector</th>
+    <th>Connectee1</th>
+    <th>Connectee2</th>
+    <th>Connector email</th>
+    <th>Connectee1 email</th>
+    <th>Connector2 email</th>
+    <th>Reason</th>
+    <th>Connectee1 accept</th>
+    <th>Connectee2 accept</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @connectorizes.each do |connectorize| %>
+  <tr>
+    <td><%= connectorize.connector %></td>
+    <td><%= connectorize.connectee1 %></td>
+    <td><%= connectorize.connectee2 %></td>
+    <td><%= connectorize.connector_email %></td>
+    <td><%= connectorize.connectee1_email %></td>
+    <td><%= connectorize.connector2_email %></td>
+    <td><%= connectorize.reason %></td>
+    <td><%= connectorize.connectee1_accept %></td>
+    <td><%= connectorize.connectee2_accept %></td>
+    <td><%= link_to 'Show', connectorize %></td>
+    <td><%= link_to 'Edit', edit_connectorize_path(connectorize) %></td>
+    <td><%= link_to 'Destroy', connectorize, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Connectorize', new_connectorize_path %>

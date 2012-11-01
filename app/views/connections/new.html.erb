@@ -1,0 +1,12 @@
+<h1>Tell Us 2 People to Introduce<h1>
+<%= form_for @connection do |f| %>
+	<%= f.fields_for :connectee1 do |c1| %> 
+		<%= c1.text_field :name%>
+		<%= c1.text_field :email%>
+	<% end %>
+	<%= f.fields_for :connectee2 do |c2| %> 
+		<%= c2.text_field :name%>
+		<%= c2.text_field :email%>
+	<% end %>
+	<%= f.submit "Introduce" %>
+<% end %>

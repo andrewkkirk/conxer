@@ -1,0 +1,53 @@
+<%= form_for(@connectorize) do |f| %>
+  <% if @connectorize.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@connectorize.errors.count, "error") %> prohibited this connectorize from being saved:</h2>
+
+      <ul>
+      <% @connectorize.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :connector %><br />
+    <%= f.text_field :connector %>
+  </div>
+  <div class="field">
+    <%= f.label :connectee1 %><br />
+    <%= f.text_field :connectee1 %>
+  </div>
+  <div class="field">
+    <%= f.label :connectee2 %><br />
+    <%= f.text_field :connectee2 %>
+  </div>
+  <div class="field">
+    <%= f.label :connector_email %><br />
+    <%= f.text_field :connector_email %>
+  </div>
+  <div class="field">
+    <%= f.label :connectee1_email %><br />
+    <%= f.text_field :connectee1_email %>
+  </div>
+  <div class="field">
+    <%= f.label :connector2_email %><br />
+    <%= f.text_field :connector2_email %>
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br />
+    <%= f.text_area :reason %>
+  </div>
+  <div class="field">
+    <%= f.label :connectee1_accept %><br />
+    <%= f.check_box :connectee1_accept %>
+  </div>
+  <div class="field">
+    <%= f.label :connectee2_accept %><br />
+    <%= f.check_box :connectee2_accept %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
