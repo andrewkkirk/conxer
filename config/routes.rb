@@ -1,5 +1,4 @@
 Conxer::Application.routes.draw do
-  resources :connectorizes
 
   resources :connections
 

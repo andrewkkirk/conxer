@@ -5,5 +5,8 @@ class ConnectionsController < ApplicationController
 		@connection.build_connectee1
 		@connection.build_connectee2
 	end
+	
+	def create 
+	end
 
 end

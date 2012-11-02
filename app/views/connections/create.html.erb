@@ -1,0 +1,8 @@
+<h1>These two people should meet because:</h1>
+<p>
+<%= fields_for :connection  do |g| %> 
+		<%= g.label :reason %>
+		<%= g.text_area :reason %>
+		<%= g.submit "Finish" %>
+<% end %>
+</p>
