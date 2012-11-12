@@ -6,4 +6,7 @@ class Connection < ActiveRecord::Base
 
 	accepts_nested_attributes_for :connectee1, :connectee2 
 	
+	validates :reason, :presence => true
+											
+	
 end
