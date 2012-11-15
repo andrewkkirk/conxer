@@ -6,7 +6,11 @@ class ConnectionsController < ApplicationController
 		@connection.build_connectee2
 	end
 	
-	def create 
+	def create
+		@connection= Connection.create params[:connection]
+		ConnectionMailer.connectee1_email(@connection.connectee1).deliver
+		ConnectionMailer.connectee2_email(@connection.connectee2).deliver
+		redirect_to connection_path(@connection)
 	end
 
 	def edit
@@ -17,6 +21,6 @@ class ConnectionsController < ApplicationController
 	end
 	
 	def show
-		@connection.find(params[:id])
+		Connection.find(params[:id])
 	end
 end
