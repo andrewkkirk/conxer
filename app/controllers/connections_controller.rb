@@ -7,10 +7,17 @@ class ConnectionsController < ApplicationController
 	end
 	
 	def create
-		@connection= Connection.create params[:connection]
-		ConnectionMailer.connectee1_email(@connection.connectee1).deliver
-		ConnectionMailer.connectee2_email(@connection.connectee2).deliver
-		redirect_to connection_path(@connection)
+		# debugger
+		@connection = Connection.new params[:connection]
+
+		if @connection.save
+			redirect_to @connection
+		else
+			render :new
+		end
+		# ConnectionMailer.connectee1_email(@connection.connectee1).deliver
+		# ConnectionMailer.connectee2_email(@connection.connectee2).deliver
+		# redirect_to connection_path(@connection)
 	end
 
 	def edit

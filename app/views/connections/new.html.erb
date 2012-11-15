@@ -1,4 +1,13 @@
 <h1>Tell Us 2 People to Introduce</h1>
+
+<div class="errors">
+	<% if @connection.errors.present? %>
+		<% @connection.errors.each do |key, message| %>
+			<p class="error"><b><%= key %></b>: <%= message %></p>
+		<% end %>
+	<% end %>
+</div>
+
 <%= form_for @connection do |f| %>
 	<%= f.fields_for :connectee1 do |c1| %> 
 		<%= c1.label :name %>
