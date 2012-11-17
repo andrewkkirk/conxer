@@ -1,13 +1,15 @@
-class ConnectionsController < ApplicationController
+ class ConnectionsController < ApplicationController
 
-	def new
+ 	# instantiate new connection object #
+ 	def new
 		@connection = Connection.new
-		@connection.build_connectee1
-		@connection.build_connectee2
-		@connection.build_connector
-	end
+		# @connection.build_connectee1
+		# @connection.build_connectee2
+		# @connection.build_connector
+ 	end
 	
-	def create
+	# save attributes to connection #
+	def create		
 		@connection = Connection.new params[:connection]
 
 		if @connection.save		
@@ -28,4 +30,4 @@ class ConnectionsController < ApplicationController
 	def show
 		Connection.find(params[:id])
 	end
-end
+ end

@@ -11,16 +11,16 @@ class Connection < ActiveRecord::Base
 	validates :reason, :presence => true
 	validates_length_of :reason, :maximum => 160
 
-	after_initialize :build_associated_parties
+	# after_initialize :build_associated_parties	
 	after_create :mail_connectees
 	after_create :log_successful_mail
 	
 	# Builds connectee's and connector objects
-	def build_associated_parties
-		build_connector
-		build_connectee1
-		build_connectee2
-	end
+	# def build_associated_parties
+	# 	build_connector
+	# 	build_connectee1
+	# 	build_connectee2
+	# end
 
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_connectees
