@@ -4,20 +4,18 @@ class ConnectionsController < ApplicationController
 		@connection = Connection.new
 		@connection.build_connectee1
 		@connection.build_connectee2
+		@connection.build_connector
 	end
 	
 	def create
-		# debugger
 		@connection = Connection.new params[:connection]
 
-		if @connection.save
+		if @connection.save		
+			flash[:notice] = "Connection created successfully!"
 			redirect_to @connection
 		else
 			render :new
 		end
-		# ConnectionMailer.connectee1_email(@connection.connectee1).deliver
-		# ConnectionMailer.connectee2_email(@connection.connectee2).deliver
-		# redirect_to connection_path(@connection)
 	end
 
 	def edit
