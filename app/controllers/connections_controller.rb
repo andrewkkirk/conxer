@@ -3,9 +3,9 @@
  	# instantiate new connection object #
  	def new
 		@connection = Connection.new
-		# @connection.build_connectee1
-		# @connection.build_connectee2
-		# @connection.build_connector
+		@connection.build_connectee1
+		@connection.build_connectee2
+		@connection.build_connector
  	end
 	
 	# save attributes to connection #
