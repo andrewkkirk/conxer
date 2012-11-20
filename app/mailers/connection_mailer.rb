@@ -16,5 +16,4 @@ class ConnectionMailer < ActionMailer::Base
 		@reason = reason
 		mail(:to => connectee2.email, :subject => "#{connectee2.name}, #{connector.name} wants to make an introduction.")
 	end
-
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031032854) do
+ActiveRecord::Schema.define(:version => 20121120171527) do
 
   create_table "connections", :force => true do |t|
     t.text     "reason"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(:version => 20121031032854) do
     t.integer  "connectee2_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.boolean  "connectee1_response"
+    t.boolean  "connectee2_response"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|

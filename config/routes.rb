@@ -1,6 +1,8 @@
 Conxer::Application.routes.draw do
 
-  resources :connections
+  resources :connections do
+    resources :permissions
+  end
 
   resources :users
 
