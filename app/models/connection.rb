@@ -24,8 +24,8 @@ class Connection < ActiveRecord::Base
 
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_connectees
-		ConnectionMailer.connectee1_email(connectee1).deliver
-		ConnectionMailer.connectee2_email(connectee2).deliver
+		ConnectionMailer.connectee1_email(connectee1, connectee2, connector, reason).deliver
+		ConnectionMailer.connectee2_email(connectee1, connectee2, connector, reason).deliver
 	end
 
 	def log_successful_mail

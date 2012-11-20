@@ -4,9 +4,10 @@
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
 	</head>
 	<body>
-		<h1>You've been sent an connection email</h1>
-			<p>CONNECTION wants you to introduce you to CONNECTEE2</p>
-			<p>All you have to click accept</p> 
-			<p>If CONNECTEE1 also wants to exchange contact info, we'll email you the info.</p>
+		<h1><%= @connectee1.name %>, <%= @connector.name %> wants to make an introduction for you.</h1>
+			<p><%= @connector.name %> thinks you should meet <%= @connectee2.name %>, because:</p>
+			<blockquote><%= @reason %></blockquote>
+			<p>Click to accept.</p> 
+			<p>If <%= @connectee2.name %> also agrees to exchange contact info, we'll send you an email with all the information.</p>
 	</body>
 </html>
