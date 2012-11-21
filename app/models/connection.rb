@@ -7,14 +7,22 @@ class Connection < ActiveRecord::Base
 	belongs_to :connectee2, class_name: "User"
 
 	accepts_nested_attributes_for :connector, :connectee1, :connectee2 
+
+	belongs_to :permission 
 	
 	validates :reason, :presence => true
 	validates_length_of :reason, :maximum => 160
 
 	# after_initialize :build_associated_parties	
-	after_create :mail_introduce_connectees
-	after_create :log_successful_mail
 	
+  after_create :setup_and_send_emails
+
+  def setup_and_send_emails
+  	create_permission
+  	mail_introduce_connectees
+  	log_successful_mail
+  end
+
 	# Builds connectee's and connector objects
 	# def build_associated_parties
 	# 	build_connector
@@ -24,7 +32,7 @@ class Connection < ActiveRecord::Base
 
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_introduce_connectees
-		ConnectionMailer.connectee1_email(connectee1, connectee2, connector, reason).deliver
+		ConnectionMailer.connectee1_email(self).deliver
 		ConnectionMailer.connectee2_email(connectee1, connectee2, connector, reason).deliver
 	end
 
@@ -32,5 +40,7 @@ class Connection < ActiveRecord::Base
 		Rails.logger.info "Mailed successfully!"
 	end
 
+	# after save of connections, create a new permission instance
+	# after_create permission.new 
 	
 end
