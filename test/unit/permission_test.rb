@@ -20,7 +20,7 @@ class PermissionTest < ActiveSupport::TestCase
 	end
 
   test "when created, create a permission object as well" do
-  	assert @connection.permission.nil?
+  	# assert @connection.permission.nil?
   	@connection.save!
   	assert @connection.permission.present?
 	end

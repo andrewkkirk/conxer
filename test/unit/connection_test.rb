@@ -83,4 +83,11 @@ class ConnectionTest < ActiveSupport::TestCase
 		id = @connection.id
 		assert Connection.exists?(id)
 	end
+
+	test "associations not nil" do
+		c = Connection.new
+		assert_not_nil c.connectee1
+		assert_not_nil c.connectee2
+		assert_not_nil c.connector
+	end
 end

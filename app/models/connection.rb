@@ -13,25 +13,22 @@ class Connection < ActiveRecord::Base
 	validates :reason, :presence => true
 	validates_length_of :reason, :maximum => 160
 
-	# after_initialize :build_associated_parties	
+	after_initialize :build_associated_parties	
 	
   after_create :setup_and_send_emails
 
   def setup_and_send_emails
-  	p = Permission.create
-  	self.permission = p
-    self.save!
-  	#create_permission
   	mail_introduce_connectees
   	log_successful_mail
   end
 
-	# Builds connectee's and connector objects
-	# def build_associated_parties
-	# 	build_connector
-	# 	build_connectee1
-	# 	build_connectee2
-	# end
+	# builds connectee's, connector, permission objects
+	def build_associated_parties
+		build_connector
+		build_connectee1
+		build_connectee2
+		build_permission
+	end
 
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_introduce_connectees
