@@ -18,7 +18,10 @@ class Connection < ActiveRecord::Base
   after_create :setup_and_send_emails
 
   def setup_and_send_emails
-  	create_permission
+  	p = Permission.create
+  	self.permission = p
+    self.save!
+  	#create_permission
   	mail_introduce_connectees
   	log_successful_mail
   end
