@@ -1,5 +1,9 @@
 class PermissionsController < ApplicationController
 
+	def new
+		@permission = Permission.new
+	end
+
 	def accept
 		permission = Permission.find params[:id]
 		connection = permission.connection

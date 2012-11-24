@@ -1,33 +1,32 @@
-class Connection < ActiveRecord::Base 
-	attr_accessible :reason, :established, :connector, :connectee1, :connectee2, 
-									:connectee1_attributes, :connectee2_attributes, :connector_attributes 
-	
-	belongs_to :connector, class_name: "User" 
+class Connection < ActiveRecord::Base
+	attr_accessible :reason, :established, :connector, :connectee1, :connectee2,
+									:connectee1_attributes, :connectee2_attributes, :connector_attributes
+
+	belongs_to :connector, class_name: "User"
 	belongs_to :connectee1, class_name: "User"
 	belongs_to :connectee2, class_name: "User"
 
-	accepts_nested_attributes_for :connector, :connectee1, :connectee2 
+	accepts_nested_attributes_for :connector, :connectee1, :connectee2
 
-	belongs_to :permission 
-	
+	belongs_to :permission
+
+	after_initialize :build_associated_parties
+
 	validates :reason, :presence => true
 	validates_length_of :reason, :maximum => 160
 
-	after_initialize :build_associated_parties	
-	
-  after_create :setup_and_send_emails
+	after_create :setup_and_send_emails
 
   def setup_and_send_emails
   	mail_introduce_connectees
   	log_successful_mail
   end
 
-	# builds connectee's, connector, permission objects
+	#builds connectee's, connector, permission objects
 	def build_associated_parties
-		build_connector
-		build_connectee1
-		build_connectee2
-		build_permission
+		build_connector unless connector
+		build_connectee1 unless connectee1
+		build_connectee2 unless connectee2
 	end
 
 	# Sends email to both connectee1 and connectee2 with offer to connect #
@@ -41,6 +40,6 @@ class Connection < ActiveRecord::Base
 	end
 
 	# after save of connections, create a new permission instance
-	# after_create permission.new 
-	
+	# after_create permission.new
+
 end
