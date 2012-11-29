@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20121121193817) do
     t.integer  "connector_id"
     t.integer  "connectee1_id"
     t.integer  "connectee2_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "connectee1_accepted"
+    t.boolean  "connectee2_accepted"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "permission_id"
   end
 

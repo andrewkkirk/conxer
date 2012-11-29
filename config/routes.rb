@@ -1,9 +1,12 @@
 Conxer::Application.routes.draw do
 
-  resources :connections
-  
-  resources :permissions
-  
+  resources :connections do
+    get :accept
+    get :deny
+  end
+
+  # resources :permissions
+
   resources :users
 
   # The priority is based upon order of creation:

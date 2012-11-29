@@ -8,7 +8,7 @@ class Connection < ActiveRecord::Base
 
 	accepts_nested_attributes_for :connector, :connectee1, :connectee2
 
-	belongs_to :permission
+	# belongs_to :permission
 
 	after_initialize :build_associated_parties
 
@@ -32,11 +32,30 @@ class Connection < ActiveRecord::Base
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_introduce_connectees
 		ConnectionMailer.connectee1_email(self).deliver
-		ConnectionMailer.connectee2_email(connectee1, connectee2, connector, reason).deliver
+		ConnectionMailer.connectee2_email(self).deliver
 	end
 
 	def log_successful_mail
 		Rails.logger.info "Mailed successfully!"
+	end
+
+	def accept(connectee_id)
+		debugger
+		if connectee_id == self.connectee1_id.to_s
+			self.connectee1_accepted = true
+		elsif connectee_id == self.connectee2_id.to_s
+			self.connectee2_accepted = true
+		end
+		self.save
+	end
+
+	def deny(connectee_id)
+		if connectee_id == self.connectee1_id.to_s
+			self.connectee1_accepted = false
+		elsif connectee_id == self.connectee2_id.to_s
+			self.connectee2_accepted = false
+		end
+		self.save
 	end
 
 	# after save of connections, create a new permission instance

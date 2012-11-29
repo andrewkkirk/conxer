@@ -30,4 +30,14 @@
 	def show
 		Connection.find(params[:id])
 	end
+
+	def accept
+		@connection = Connection.find params[:connection_id]
+		@connection.accept(params[:cid])
+	end
+
+	def deny
+		@connectoin = Connection.find params[:connection_id]
+		@connection.deny(params[:cid])
+	end
  end
