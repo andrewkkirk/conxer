@@ -5,8 +5,6 @@ Conxer::Application.routes.draw do
     get :deny
   end
 
-  # resources :permissions
-
   resources :users
 
   # The priority is based upon order of creation:

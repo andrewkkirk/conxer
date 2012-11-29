@@ -8,8 +8,6 @@ class Connection < ActiveRecord::Base
 
 	accepts_nested_attributes_for :connector, :connectee1, :connectee2
 
-	# belongs_to :permission
-
 	after_initialize :build_associated_parties
 
 	validates :reason, :presence => true
@@ -39,8 +37,8 @@ class Connection < ActiveRecord::Base
 		Rails.logger.info "Mailed successfully!"
 	end
 
+	# action for connectee to accept connection invitaiton
 	def accept(connectee_id)
-		debugger
 		if connectee_id == self.connectee1_id.to_s
 			self.connectee1_accepted = true
 		elsif connectee_id == self.connectee2_id.to_s
@@ -49,6 +47,7 @@ class Connection < ActiveRecord::Base
 		self.save
 	end
 
+# action for connectee to deny connection invitation
 	def deny(connectee_id)
 		if connectee_id == self.connectee1_id.to_s
 			self.connectee1_accepted = false
@@ -57,8 +56,5 @@ class Connection < ActiveRecord::Base
 		end
 		self.save
 	end
-
-	# after save of connections, create a new permission instance
-	# after_create permission.new
 
 end

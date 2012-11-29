@@ -36,8 +36,8 @@
 		@connection.accept(params[:cid])
 	end
 
-	def deny
-		@connectoin = Connection.find params[:connection_id]
-		@connection.deny(params[:cid])
-	end
+	# def deny
+	# 	@connectoin = Connection.find params[:connection_id]
+	# 	@connection.deny(params[:cid])
+	# end
  end

@@ -10,29 +10,49 @@ class ConnectionsControllerTest < ActionController::TestCase
 
   test "should create connection" do
     assert_difference('Connection.count') do
-      post :create, 
-      			connection: { 
-      				reason: "a reason", 
-      				connector_attributes: { 
+      post :create,
+      			connection: {
+      				reason: "a reason",
+      				connector_attributes: {
       					name: "name",
       					email: "steve@andrewkkirk.com"
       				},
-      				connectee1_attributes: { 
+      				connectee1_attributes: {
       					name: "name",
       					email: "andrew347893749@yahoo.com"
       				},
-							connectee2_attributes: { 
+							connectee2_attributes: {
       					name: "name",
       					email: "jery3593@gmail.com"
-      				}					
-      }			
+      				}
+      }
     end
-    
+
     assert_not_nil assigns(:connection)
     assert_not_nil assigns(:connection).connectee1
     assert_not_nil assigns(:connection).connectee2
 
     assert_redirected_to connection_path(assigns(:connection))
   end
-  
+
+  # test "should get accept" do
+  #     get :create,
+  #           connection: {
+  #             reason: "a reason",
+  #             connector_attributes: {
+  #               name: "name1",
+  #               email: "andrew@andrewkkirk.com"
+  #             },
+  #             connectee1_attributes: {
+  #               name: "name2",
+  #               email: "andrew@facethebuzz.com"
+  #             },
+  #             connectee2_attributes: {
+  #               name: "name3",
+  #               email: "andrew.k.kirk@gmail.com"
+  #             }
+  #     }
+  #   end
+  #   assert_redirected_to 'connection/accept'
+
 	end

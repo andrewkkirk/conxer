@@ -34,4 +34,7 @@ Conxer::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Set default host value for url method
+  default_url_options[:host]= "0.0.0.0:3000"
 end
