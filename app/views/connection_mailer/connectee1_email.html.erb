@@ -8,6 +8,7 @@
 			<p><%= @connector.name %> thinks you should meet <%= @connectee2.name %>, because:</p>
 			<blockquote><%= @reason %></blockquote>
 			<p><%= connection_accept_url(@connection, :params => {:cid => @connectee1.id}) %></p>
+			<p><%= connection_deny_url(@connection, :params => {:cid => @connectee1.id}) %></p>
 			<p>If <%= @connectee2.name %> also agrees to exchange contact info, we'll send you an email with all the information.</p>
 	</body>
 </html>
