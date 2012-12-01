@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Conxer</title>
+  <title>Conxer | New Connections Made Easy</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-<!--  <div class="flash">
- 	<%= flash[:notice] if flash[:notice] %>
- </div> -->
- <%= yield %> 
+  <div class="container">
+    <!--  <div class="flash">
+   	  <%= flash[:notice] if flash[:notice] %>
+    </div> -->
 
+    <%= yield %>
+  </div>
+
+  <footer>Created by <a href="http://www.andrewkkirk.com/?utm_source=conxer&utm_medium=web&utm_content=footer&utm_campaign=conxer">Andrew K Kirk</a></footer>
+
+  <!-- Javascript - Placed at the end of the document so the pages load faster -->
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
