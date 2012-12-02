@@ -13,17 +13,17 @@
 	  	<%= form_for @connection do |f| %>
 				<%= f.fields_for :connectee1 do |c1| %>
 					<%= c1.label :name1 %>
-					<%= c1.text_field :name%>
+					<%= c1.text_field :name, placeholder: "Steve Jobs"%>
 					<%= c1.label :email1 %>
-					<%= c1.email_field :email%>
+					<%= c1.email_field :email, placeholder: "steve.jobs@apple.com"%>
 		</div>
 		<div class="span4 offset2">
 				<% end %>
 				<%= f.fields_for :connectee2 do |c2| %>
 					<%= c2.label :name2 %>
-					<%= c2.text_field :name%>
+					<%= c2.text_field :name, placeholder: "Bill Gates"%>
 					<%= c2.label :email2 %>
-					<%= c2.email_field :email%>
+					<%= c2.email_field :email, placeholder: "bill.gates@microsoft.com"%>
 				<% end %>
 	  </div>
 	  <div class="span12">
