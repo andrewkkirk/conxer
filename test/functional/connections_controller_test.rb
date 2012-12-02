@@ -35,24 +35,5 @@ class ConnectionsControllerTest < ActionController::TestCase
     assert_redirected_to connection_path(assigns(:connection))
   end
 
-  # test "should get accept" do
-  #     get :create,
-  #           connection: {
-  #             reason: "a reason",
-  #             connector_attributes: {
-  #               name: "name1",
-  #               email: "andrew@andrewkkirk.com"
-  #             },
-  #             connectee1_attributes: {
-  #               name: "name2",
-  #               email: "andrew@facethebuzz.com"
-  #             },
-  #             connectee2_attributes: {
-  #               name: "name3",
-  #               email: "andrew.k.kirk@gmail.com"
-  #             }
-  #     }
-  #   end
-  #   assert_redirected_to 'connection/accept'
 
 	end

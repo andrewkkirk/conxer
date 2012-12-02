@@ -20,4 +20,11 @@ class ConnectionMailer < ActionMailer::Base
 		mail(:to => @connectee2.email,
 					:subject => "#{@connectee2.name}, #{@connector.name} wants to make an introduction.")
 	end
+
+	# def connection_established_email(connection)
+	# 	@connection = connection
+			# mail(:to => @connectee1.email,
+						# :cc => @connectee2.email,
+			# 		:subject => "#{@connectee2.name}, #{@connector.name} wants to make an introduction.")
+	# end
 end

@@ -6,11 +6,11 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem "factory_girl_rails", "~> 4.0"
 
 group :development do
 	gem 'debugger'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -45,6 +45,8 @@ class Connection < ActiveRecord::Base
 			self.connectee2_accepted = true
 		end
 		self.save
+		# if connectee1_accepted && connectee2_accepted
+			# ConnectionMailer.connection_established_email(self).deliver
 	end
 
 # action for connectee to deny connection invitation

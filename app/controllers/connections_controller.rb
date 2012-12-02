@@ -24,9 +24,6 @@
 		@connection = Connection.find(params[:id])
 	end
 
-	def update
-	end
-
 	def show
 		Connection.find(params[:id])
 	end
