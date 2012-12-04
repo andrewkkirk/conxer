@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  connectee1_response: false
-  connectee2_response: false
-
-two:
-  connectee1_response: false
-  connectee2_response: false
