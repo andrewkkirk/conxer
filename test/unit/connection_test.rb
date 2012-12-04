@@ -10,22 +10,17 @@ class ConnectionTest < ActiveSupport::TestCase
 		assert @connection.valid?, "connection should be valid but isn't"
 	end
 
-	test "a reason can not be blank" do
+	test "a reason can not be nil" do
 		@connection.reason = nil
-		assert !@connection.save
+		assert !@connection.valid?
+		# assert !@connection.save
 	end
 
 	test "the reason cannot be longer than 160 characters" do
 		@connection.reason = ("a" * 161)
-		@connection.valid?
+		assert !@connection.valid?
 		assert @connection.errors[:reason].present?
 	end
-
-	# test "connectee1 is required" do
-	# 	@connection.valid?
-	# 	assert @connection.errors[:'connectee1.email'].present?
-	# 	assert @connection.errors[:'connectee1.name'].present?
-	# end
 
 	test "connectee1 requires a name and email" do
 		@connection.valid?
@@ -52,7 +47,6 @@ class ConnectionTest < ActiveSupport::TestCase
 	end
 
 	test "associations not nil" do
-		@connection
 		assert_not_nil @connection.connectee1
 		assert_not_nil @connection.connectee2
 		assert_not_nil @connection.connector

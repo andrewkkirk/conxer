@@ -13,7 +13,6 @@
 	def create
 		@connection = Connection.new params[:connection]
 		if @connection.save
-			flash[:notice] = "Connection created successfully!"
 			redirect_to @connection
 		else
 			render :new

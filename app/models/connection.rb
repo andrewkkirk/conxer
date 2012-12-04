@@ -30,7 +30,7 @@ class Connection < ActiveRecord::Base
 	# Sends email to both connectee1 and connectee2 with offer to connect #
 	def mail_introduce_connectees
 		ConnectionMailer.connectee1_email(self).deliver
-		ConnectionMailer.connectee2_email(self).deliver
+		# ConnectionMailer.connectee2_email(self).deliver
 	end
 
 	def log_successful_mail
@@ -45,8 +45,9 @@ class Connection < ActiveRecord::Base
 			self.connectee2_accepted = true
 		end
 		self.save
-		# if connectee1_accepted && connectee2_accepted
-			# ConnectionMailer.connection_established_email(self).deliver
+		if connectee1_accepted && connectee2_accepted
+			ConnectionMailer.connection_established_email(self).deliver
+		end
 	end
 
 # action for connectee to deny connection invitation

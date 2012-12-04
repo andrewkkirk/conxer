@@ -16,6 +16,6 @@ end
     connectee1
     connectee2
     connector
-    reason "reason"
+    reason "good reason"
   end
 end
