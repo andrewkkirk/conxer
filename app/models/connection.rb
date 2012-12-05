@@ -45,8 +45,9 @@ class Connection < ActiveRecord::Base
 			self.connectee2_accepted = true
 		end
 		self.save
-		if connectee1_accepted && connectee2_accepted
+		if established?
 			ConnectionMailer.connection_established_email(self).deliver
+			# notify_connector
 		end
 	end
 
@@ -59,5 +60,13 @@ class Connection < ActiveRecord::Base
 		end
 		self.save
 	end
+
+	def established?
+		connectee1_accepted && connectee2_accepted
+	end
+
+	# def notify_connector
+	# 	ConnectionMailer.notify_connector(self).deliver if self #add conditional value
+	# end
 
 end

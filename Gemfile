@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "factory_girl_rails", "~> 4.0"
+gem "activerecord-postgresql-adapter"
 
 group :development do
 end
@@ -16,6 +17,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
+  gem 'pg'
 end
 group :production do
   gem 'pg'

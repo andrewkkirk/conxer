@@ -13,16 +13,18 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: conxer_development
+  database: conxer
   pool: 5
+  port: 5433
   username: postgres
   password:
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: conxer_test
+  database: conxer
   pool: 5
+  port: 5433
   username: postgres
   password:
 
@@ -46,5 +48,6 @@ production:
   encoding: utf8
   database: conxer_production
   pool: 5
+  port: 5433
   username: postgres
   password:
