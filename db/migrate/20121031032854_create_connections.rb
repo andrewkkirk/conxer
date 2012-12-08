@@ -8,6 +8,7 @@ class CreateConnections < ActiveRecord::Migration
   		t.references :connectee2
       t.boolean :connectee1_accepted
       t.boolean :connectee2_accepted
+      t.boolean :notify_connector_of_success, default: false
 
   		t.timestamps
   	end

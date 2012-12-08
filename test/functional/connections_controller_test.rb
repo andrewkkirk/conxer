@@ -2,6 +2,10 @@ require 'test_helper'
 
 class ConnectionsControllerTest < ActionController::TestCase
 
+  def setup
+    @connection = FactoryGirl.create(:connection)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -34,6 +38,4 @@ class ConnectionsControllerTest < ActionController::TestCase
 
     assert_redirected_to connection_path(assigns(:connection))
   end
-
-
-	end
+end

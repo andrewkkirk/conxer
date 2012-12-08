@@ -17,5 +17,7 @@ end
     connectee2
     connector
     reason "good reason"
+    connectee1_accepted true
+    connectee2_accepted true
   end
 end

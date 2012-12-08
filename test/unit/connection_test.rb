@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ConnectionTest < ActiveSupport::TestCase
+
 	def setup
 		@connection = FactoryGirl.create(:connection)
 	end
@@ -50,5 +51,13 @@ class ConnectionTest < ActiveSupport::TestCase
 		assert_not_nil @connection.connectee1
 		assert_not_nil @connection.connectee2
 		assert_not_nil @connection.connector
+	end
+
+	test "connector receives notification email" do
+		@connection.notify_connector_of_success = true
+		@connection.notify_connector
+		mail = ActionMailer::Base.deliveries.last
+		assert_equal @connection.connector.email, mail[:to].to_s
+		assert_match "successful", mail[:subject].to_s
 	end
 end

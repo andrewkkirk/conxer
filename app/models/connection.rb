@@ -1,6 +1,7 @@
 class Connection < ActiveRecord::Base
 	attr_accessible :reason, :established, :connector, :connectee1, :connectee2,
-									:connectee1_attributes, :connectee2_attributes, :connector_attributes
+									:notify_connector_of_success, :connectee1_attributes, :connectee2_attributes,
+									:connector_attributes
 
 	belongs_to :connector, class_name: "User"
 	belongs_to :connectee1, class_name: "User"
@@ -47,7 +48,7 @@ class Connection < ActiveRecord::Base
 		self.save
 		if established?
 			ConnectionMailer.connection_established_email(self).deliver
-			# notify_connector
+			notify_connector
 		end
 	end
 
@@ -65,8 +66,9 @@ class Connection < ActiveRecord::Base
 		connectee1_accepted && connectee2_accepted
 	end
 
-	# def notify_connector
-	# 	ConnectionMailer.notify_connector(self).deliver if self #add conditional value
-	# end
+# if all connectees accept and connector chooses to be notified, email sent to connector.
+	def notify_connector
+		ConnectionMailer.notify_connector(self).deliver if self.notify_connector_of_success
+	end
 
 end

@@ -1,5 +1,23 @@
 // Place all the Twitter Bootstrap styles here
 
-@import "bootstrap";
-body { padding-top: 60px; }
-@import "bootstrap-responsive";
+body {
+padding-top: 60px;
+}
+
+.avatar {
+  float:left;
+}
+
+.card {
+  padding-top:15px;
+
+  .body {
+    padding-left: 20px;
+  }
+}
+
+#intro {
+  background: grey;
+  color: white;
+  padding: 4em 0 3em;
+}

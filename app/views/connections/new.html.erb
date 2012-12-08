@@ -1,43 +1,61 @@
-<h1>Tell us two poeple you want to connect?</h1>
+<div class="container">
+	<h1>Tell us two poeple to connect.</h1>
 
-<div class="errors">
-	<% if @connection.errors.present? %>
-		<% @connection.errors.each do |key, message| %>
-			<p class="error"><b><%= key %></b>: <%= message %></p>
+	<div class="errors">
+		<% if @connection.errors.present? %>
+			<% @connection.errors.each do |key, message| %>
+				<p class="error"><b><%= key %></b>: <%= message %></p>
+			<% end %>
 		<% end %>
-	<% end %>
-</div>
-
-	<div class="row">
-	  <div class="span4 offset2">
-	  	<%= form_for @connection do |f| %>
-				<%= f.fields_for :connectee1 do |c1| %>
-					<%= c1.label :name1 %>
-					<%= c1.text_field :name, placeholder: "Steve Jobs"%>
-					<%= c1.label :email1 %>
-					<%= c1.email_field :email, placeholder: "steve.jobs@apple.com"%>
-		</div>
-		<div class="span4 offset2">
-				<% end %>
-				<%= f.fields_for :connectee2 do |c2| %>
-					<%= c2.label :name2 %>
-					<%= c2.text_field :name, placeholder: "Bill Gates"%>
-					<%= c2.label :email2 %>
-					<%= c2.email_field :email, placeholder: "bill.gates@microsoft.com"%>
-				<% end %>
-	  </div>
-	  <div class="span12">
-	  	<h2>Who should get the credit?</h2>
-				<%= f.fields_for :connector do |c| %>
-					<%= c.label :name %>
-					<%= c.text_field :name%>
-					<%= c.label :email %>
-					<%= c.email_field :email%>
-				<% end %>
-				<%= f.label :reason %>
-				<%= f.text_area :reason, rows: 6 %>
-				<%= f.submit "Introduce" %>
-		<% end %>
-	  </div>
 	</div>
 
+		<div class="row">
+		  <div class="span6">
+		  	<%= form_for @connection do |f| %>
+					<%= f.fields_for :connectee1 do |c1| %>
+					<div class="card">
+						<img class="pull-left img-circle" src= "http://placehold.it/100x100">
+							<div class="body">
+						    <%= c1.label :name1 %>
+								<%= c1.text_field :name, placeholder: "Steve Jobs"%>
+								<%= c1.label :email1 %>
+								<%= c1.email_field :email, placeholder: "steve.jobs@apple.com"%>
+						  	<% end %>
+						  </div>
+					</div>
+			</div>
+
+			<div class="span6">
+					<%= f.fields_for :connectee2 do |c2| %>
+					<div class="media">
+					  <a class="pull-left" href="#">
+					    <img class="img-circle" src= "http://placehold.it/100x100">
+					  </a>
+					  <div class="media-body">
+					    <%= c2.label :name2 %>
+							<%= c2.text_field :name, placeholder: "Bill Gates"%>
+							<%= c2.label :email2 %>
+							<%= c2.email_field :email, placeholder: "bill.gates@microsoft.com"%>
+					  	<% end %>
+					  </div>
+					</div>
+		  </div>
+		</div>
+		  <div class="span12">
+		  	<h2>Who should get the credit?</h2>
+					<%= f.fields_for :connector do |c| %>
+						<%= c.label :name %>
+						<%= c.text_field :name%>
+						<%= c.label :email %>
+						<%= c.email_field :email%>
+					<% end %>
+					<%= f.label :reason %>
+					<%= f.text_area :reason, rows: 6 %>
+					<%= f.label :notify_connector_of_success, "Notified if successful?" %>
+					<%= check_box :connection, :notify_connector_of_success, {}, 'true', 'false' %>
+					</br>
+					<%= f.submit "Introduce" %>
+			<% end %>
+		  </div>
+		</div>
+</div>

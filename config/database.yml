@@ -13,7 +13,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: conxer
+  database: conxer_development
   pool: 5
   port: 5433
   username: postgres
@@ -22,7 +22,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: conxer
+  database: conxer_test
   pool: 5
   port: 5433
   username: postgres

@@ -18,7 +18,7 @@ class ConnectionMailerTest < ActionMailer::TestCase
   test "connection_established_email" do
     ConnectionMailer.connection_established_email(@connection)
     sent = ActionMailer::Base.deliveries.first
-    assert_equal [@connection.connectee1.email], sent.to
-    assert_equal [@connection.connectee2.email], sent.cc
+    assert_equal [@connection.connectee1.email], sent[:to]
+    assert_equal [@connection.connectee2.email], sent[:cc]
   end
 end

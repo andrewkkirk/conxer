@@ -32,13 +32,13 @@ class ConnectionMailer < ActionMailer::Base
 					:subject => "#{@connector.name} made you a new introduction.")
 	end
 
-# 	def notify_connector(connection)
-# 		@connection = connection
-# 		@connectee1 = connection.connectee1
-# 		@connectee2 = connection.connectee2
-# 		@connector = connection.connector
-# 		@reason = connection.reason
-# 			mail (:to => @connector.email,
-# 							:subject => "Your connection was successfully created.")
-		# end
+	def notify_connector(connection)
+		@connection = connection
+		@connectee1 = connection.connectee1
+		@connectee2 = connection.connectee2
+		@connector = connection.connector
+		@reason = connection.reason
+			mail(:to => @connector.email,
+							:subject => "Your connection was successful. #{@connectee1.name} and #{@connectee1.name} have been connected.")
+	end††
 end

@@ -22,16 +22,17 @@
        <div class="flash">
      	  <%= flash[:notice] if flash[:notice] %>
       </div>
-
-      <%= yield %>
     </div>
+      <%= yield %>
 
     <hr>
 
     <footer>
-      <p>&copy; Created by <a href="http://www.andrewkkirk.com/?utm_source=conxer&utm_medium=web&utm_content=footer&utm_campaign=conxer">Andrew K Kirk</a></p>
+     <div class="container">
+      <p>Created by <a href="http://www.andrewkkirk.com/?utm_source=conxer&utm_medium=web&utm_content=footer&utm_campaign=conxer">Andrew K Kirk</a> &copy; 2012 Conxer</p>
     </footer>
-
+    </div>
+  </div>
     <!-- Javascript - Placed at the end of the document so the pages load faster -->
         <%= javascript_include_tag "application" %>
   </body>

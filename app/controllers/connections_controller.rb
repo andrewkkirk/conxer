@@ -6,7 +6,6 @@
 		# @connection.build_connectee1
   #   @connection.build_connectee2
   #   @connection.build_connector
-  # 	redirect_to new_permission_path
  	end
 
 	# save attributes to connection #
