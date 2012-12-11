@@ -1,9 +1,10 @@
-<div class="errors">
-	<% if @connection.errors.present? %>
-		<% @connection.errors.each do |key, message| %>
-			<p class="error"><b><%= key %></b>: <%= message %></p>
-		<% end %>
-	<% end %>
+<div class="container">
+  <div class="errors">
+  	<% if @connection.errors.present? %>
+  		<% @connection.errors.each do |key, message| %>
+  			<p class="error"><b><%= key %></b>: <%= message %></p>
+  		<% end %>
+  	<% end %>
+  </div>
+  <h1>Deny View </h1>
 </div>
-
-<h1>Deny View </h1>

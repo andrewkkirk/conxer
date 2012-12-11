@@ -49,10 +49,10 @@
 					<% end %>
 					<%= f.label :reason %>
 					<%= f.text_area :reason, rows: 6 %>
-					<%= f.label :notify_connector_of_success, "Notified if successful?" %>
-					<%= check_box :connection, :notify_connector_of_success, {}, 'true', 'false' %>
-					</br>
-					<%= f.submit "Introduce" %>
+
+					<%= f.label :notify_connector_of_success, :class => "checkbox" do %>
+ 					<%= f.check_box :notify_connector_of_success %>Receive notification if both accept? <% end %>
+					<%= f.submit "Introduce", :class => "btn btn-primary"%>
 			<% end %>
 		  </div>
 		</div>
