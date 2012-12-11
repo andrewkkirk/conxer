@@ -18,6 +18,9 @@
         <![endif]-->
   </head>
   <body>
+    <div class="header">
+      <%= render "shared/header" %>
+    </div>
     <div class="container">
        <div class="flash">
      	  <%= flash[:notice] if flash[:notice] %>
@@ -29,7 +32,7 @@
 
     <footer>
      <div class="container">
-      <p>Created by <a href="http://www.andrewkkirk.com/?utm_source=conxer&utm_medium=web&utm_content=footer&utm_campaign=conxer">Andrew K Kirk</a> &copy; 2012 Conxer</p>
+      <%= render "shared/footer" %>
     </footer>
     </div>
   </div>
