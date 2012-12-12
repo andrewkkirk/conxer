@@ -12,7 +12,7 @@ class Connection < ActiveRecord::Base
 	after_initialize :build_associated_parties
 
 	validates :reason, :presence => true
-	validates_length_of :reason, :maximum => 160
+	validates_length_of :reason, :maximum => 250
 
 	after_create :setup_and_send_emails
 

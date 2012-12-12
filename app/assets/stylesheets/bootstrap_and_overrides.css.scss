@@ -1,6 +1,7 @@
 // Place all the Twitter Bootstrap styles here
 
 .header{
+  background: url(http://www.andrewkkirk.com/wp-content/uploads/2012/10/grid.png);
   padding: 0.75em 0.75em 0;
 
   ul {
@@ -15,7 +16,7 @@
   padding-top:15px;
 
   .body {
-    padding-left: 25%;
+    padding-left: 8em;
   }
 }
 
@@ -41,6 +42,10 @@
 }
 
 #explain {
-  background: lightgrey;
+  background: url(http://facethebuzz.com/wp-content/uploads/2012/02/background22.jpg);
   padding: 4em 0 3em;
+}
+
+#reason {
+  width: 60%;
 }

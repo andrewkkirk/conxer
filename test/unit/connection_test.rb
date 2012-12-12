@@ -18,7 +18,7 @@ class ConnectionTest < ActiveSupport::TestCase
 	end
 
 	test "the reason cannot be longer than 160 characters" do
-		@connection.reason = ("a" * 161)
+		@connection.reason = ("a" * 251)
 		assert !@connection.valid?
 		assert @connection.errors[:reason].present?
 	end

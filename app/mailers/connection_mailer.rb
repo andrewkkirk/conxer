@@ -39,6 +39,6 @@ class ConnectionMailer < ActionMailer::Base
 		@connector = connection.connector
 		@reason = connection.reason
 			mail(:to => @connector.email,
-							:subject => "Your connection was successful. #{@connectee1.name} and #{@connectee1.name} have been connected.")
+							:subject => "Your connection was successful. #{@connectee1.name} and #{@connectee1.name} are now connected.")
 	end
 end
