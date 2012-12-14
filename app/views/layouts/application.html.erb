@@ -26,8 +26,13 @@
      	  <%= flash[:notice] if flash[:notice] %>
       </div>
     </div>
-      <%= yield %>
+    <div class="container">
+       <div class="errors">
+        <%= flash[:alert] if flash[:alert] %>
+      </div>
+    </div>
 
+      <%= yield %>
     <hr>
 
     <footer>

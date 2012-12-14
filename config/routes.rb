@@ -1,5 +1,7 @@
 Conxer::Application.routes.draw do
 
+  devise_for :users
+
   resources :connections do
     get :accept
     get :deny

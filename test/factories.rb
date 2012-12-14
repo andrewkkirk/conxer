@@ -9,6 +9,8 @@ FactoryGirl.define do
   factory :user, aliases: [:connectee1, :connectee2, :connector] do
     name "John"
     email
+    password "foobar"
+    password_confirmation "foobar"
   end
 end
 
