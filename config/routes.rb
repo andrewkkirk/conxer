@@ -2,12 +2,12 @@ Conxer::Application.routes.draw do
 
   devise_for :users
 
+  resources :users
+
   resources :connections do
     get :accept
     get :deny
   end
-
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
