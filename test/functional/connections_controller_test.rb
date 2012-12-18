@@ -19,23 +19,38 @@ class ConnectionsControllerTest < ActionController::TestCase
       				reason: "a reason",
       				connector_attributes: {
       					name: "name",
-      					email: "steve@andrewkkirk.com"
+      					email: "steve@andrewkkirk.com",
+                password: "password",
+                password_confirmation: "password"
       				},
       				connectee1_attributes: {
       					name: "name",
-      					email: "andrew347893749@yahoo.com"
+      					email: "andrew347893749@yahoo.com",
+                password: "password",
+                password_confirmation: "password"
       				},
 							connectee2_attributes: {
       					name: "name",
-      					email: "jery3593@gmail.com"
-      				}
+      					email: "jery3593@gmail.com",
+      				  password: "password",
+                password_confirmation: "password"
+              }
       }
     end
 
     assert_not_nil assigns(:connection)
     assert_not_nil assigns(:connection).connectee1
     assert_not_nil assigns(:connection).connectee2
+    assert_not_nil assigns(:connection).connector
+    assert_not_nil assigns(:connection).reason
 
     assert_redirected_to connection_path(assigns(:connection))
   end
+
+  # test "should get connection list" do
+  #   get :connection
+  #   user_signed_in?
+  #     :
+  # end
+
 end

@@ -16,10 +16,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should create user" do
-  #   assert_difference('User.count') do
-  #     post :create, user: { email: @user.email, name: @user.name }
-  # #   end
+  test "should create user" do
+    assert_difference('User.count') do
+      post :create, user: { email: @user.email, name: @user.name,
+                            password: @user.password,
+                            password_confirmation: @user.password_confirmation }
+    end
+  end
 
   #   assert_redirected_to user_path(assigns(:user))
   # end
@@ -43,7 +46,9 @@ class UsersControllerTest < ActionController::TestCase
     assert_difference('User.count', -1) do
       delete :destroy, id: @user
     end
-
-    assert_redirected_to users_path
   end
+
+  # test "logged in user redirected to connections" do
+  # end
+
 end
