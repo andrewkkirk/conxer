@@ -16,4 +16,7 @@ class User < ActiveRecord::Base
 	validates :email, :presence => true, format: { with: VALID_EMAIL_REGEX }
 	before_save { |user| user.email = email.downcase }
 
+  def connections_params
+    {name: self.name, email: self.email}
+  end
 end

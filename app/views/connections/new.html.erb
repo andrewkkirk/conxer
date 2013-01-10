@@ -16,9 +16,9 @@
 					<div class="card">
 						<img class="pull-left img-circle" src= "http://placehold.it/100x100">
 							<div class="body">
-						    <%= c1.label :name1, "1st Name" %>
+						    <%= c1.label :name1, "1st Person's Name" %>
 								<%= c1.text_field :name, placeholder: "Steve Jobs"%>
-								<%= c1.label :email1, "1st Email" %>
+								<%= c1.label :email1, "1st Person's Email" %>
 								<%= c1.email_field :email, placeholder: "steve.jobs@apple.com"%>
 						  	<% end %>
 						  </div>
@@ -30,9 +30,9 @@
 					<div class="card">
 						<img class="pull-left img-circle" src= "http://placehold.it/100x100">
 							<div class="body">
-						    <%= c2.label :name2, "2nd Name" %>
+						    <%= c2.label :name2, "2nd Person's Name" %>
 								<%= c2.text_field :name, placeholder: "Bill Gates"%>
-								<%= c2.label :email2, "2nd Email" %>
+								<%= c2.label :email2, "2nd Person's Email" %>
 								<%= c2.email_field :email, placeholder: "bill.gates@microsoft.com"%>
 						  	<% end %>
 					  	</div>
@@ -43,16 +43,21 @@
 					<%= f.text_area :reason, rows: 6, id: "reason", placeholder: "Steve started Apple and is a big fan of simple, clean products. Bill founded Microsoft and is working on a powerful new operating system. You two should discuss opportunities to collaborate." %>
 		</div>
 		  <div class="span12">
-		  	<h2>And who should get the credit? <small>Hint: it's you</small></h2>
-					<%= f.fields_for :connector do |c| %>
-						<%= c.label :name, "Your Name" %>
-						<%= c.text_field :name%>
-						<%= c.label :email, "Your Email" %>
-						<%= c.email_field :email%>
-					<% end %>
-					<%= f.label :notify_connector_of_success, :class => "checkbox" do %>
- 					<%= f.check_box :notify_connector_of_success %>Receive notification if both accept? <% end %>
-					<%= f.submit "Introduce", :class => "btn btn-primary"%>
+		  	<% if user_signed_in? %>
+		  		<h2>We'll make sure you get the credit</h2>
+		  			<p>Your connections will see it was you who created the introduction.</p>
+		  	<% else %>
+			  	<h2>And who should get the credit? <small>Hint: it's you</small></h2>
+						<%= f.fields_for :connector do |c| %>
+							<%= c.label :name, "Your Name" %>
+							<%= c.text_field :name%>
+							<%= c.label :email, "Your Email" %>
+							<%= c.email_field :email%>
+						<% end %>
+						<%= f.label :notify_connector_of_success, :class => "checkbox" do %>
+	 					<%= f.check_box :notify_connector_of_success %>Receive notification if both accept? <% end %>
+						<%= f.submit "Introduce", :class => "btn btn-primary"%>
+				<% end %>
 			<% end %>
 		  </div>
 		</div>

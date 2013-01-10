@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>All Connections</h1>
+
+  <%= link_to "Create New Connection", new_connection_path, class: "btn btn-success" %>
+
+<% @connections.each do |connection| %>
+  <%= connection.reason %>
+<% end %>
+
+</div>

@@ -3,14 +3,16 @@
  	# instantiate new connection object #
  	def new
 		@connection = Connection.new
-		# @connection.build_connectee1
-  #   @connection.build_connectee2
-  #   @connection.build_connector
  	end
 
 	# save attributes to connection #
 	def create
-		@connection = Connection.new params[:connection]
+		if user_signed_in?
+			@connection = Connection.new params[:connection].merge({connector_attributes:
+																									current_user.connections_params})
+		else
+			@connection = Connection.new params[:connection]
+		end
 		if @connection.save
 			redirect_to @connection
 		else
@@ -26,11 +28,17 @@
 		Connection.find(params[:id])
 	end
 
+	def index
+		@connections = Connection.current_user
+	end
+
+	# accept a connection invitation #
 	def accept
 		@connection = Connection.find params[:connection_id]
 		@connection.accept(params[:cid])
 	end
 
+	# reject a connection invitation #
 	def deny
 		@connection = Connection.find params[:connection_id]
 		@connection.deny(params[:cid])
