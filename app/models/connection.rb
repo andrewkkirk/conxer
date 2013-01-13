@@ -28,10 +28,10 @@ class Connection < ActiveRecord::Base
 		build_connectee2 unless connectee2
 	end
 
-	# Sends email to both connectee1 and connectee2 with offer to connect #
+	# Sends email to both connectee1 and connectee2 with offer to connect
 	def mail_introduce_connectees
 		ConnectionMailer.connectee1_email(self).deliver
-		# ConnectionMailer.connectee2_email(self).deliver
+		ConnectionMailer.connectee2_email(self).deliver
 	end
 
 	def log_successful_mail

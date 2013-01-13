@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+	</head>
+	<body>
+		<h1><%= @connectee1.name %>, <%= @connector.name %> wants to make an introduction for you.</h1>
+		<p><%= @connector.name %> thinks you should meet <%= @connectee2.name %>, because:</p>
+				<blockquote><%= @reason %></blockquote>
+			<p>If you wish to complete this connection, click <%= link_to "Accept", connection_accept_url(@connection, :params => {:cid => @connectee1.id}) %></p>
+			<p>Or you can choose to not exchange messages, click <%= link_to "Deny", connection_deny_url(@connection, :params => {:cid => @connectee1.id}) %></p>
+			<p>If <%= @connectee2.name %> also agrees to exchange contact info, we'll send you an email with all the information.</p>
+	</body>
+</html>

@@ -6,12 +6,6 @@ class ConnectionsControllerTest < ActionController::TestCase
     @connection = FactoryGirl.create(:connection)
   end
 
-  def login_user
-      @request.env["devise.mapping"] = Devise.mappings[:user]
-      @user = FactoryGirl.create(:user)
-      sign_in @user
-  end
-
   def create_new_connection
     post :create,
             connection: {
@@ -19,20 +13,14 @@ class ConnectionsControllerTest < ActionController::TestCase
               connector_attributes: {
                 name: "name",
                 email: "steve@andrewkkirk.com",
-                password: "password",
-                password_confirmation: "password"
               },
               connectee1_attributes: {
                 name: "name",
                 email: "andrew347893749@yahoo.com",
-                password: "password",
-                password_confirmation: "password"
               },
               connectee2_attributes: {
                 name: "name",
                 email: "jery3593@gmail.com",
-                password: "password",
-                password_confirmation: "password"
               }
       }
     end
@@ -71,10 +59,10 @@ class ConnectionsControllerTest < ActionController::TestCase
   #   end
   # end
 
-  test "is user is signed in, then connector automatically set to user" do
-    login_user
-    create_new_connection
-    assert_equal assigns(:connection).connector.name, @user.name
-    assert_equal assigns(:connection).connector.email, @user.email
-  end
+  # test "is user is signed in, then connector automatically set to user" do
+  #   login_user
+  #   create_new_connection
+  #   assert_equal assigns(:connection).connector.name, @user.name
+  #   assert_equal assigns(:connection).connector.email, @user.email
+  # end
 end

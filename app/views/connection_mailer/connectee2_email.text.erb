@@ -1,0 +1,10 @@
+<%= @connectee2.name %>, <%= @connector.name %> wants to make an introduction for you.
+===================================
+<%= @connector.name %> thinks you should meet <%= @connectee1.name %>, because:
+
+<%= @reason %>
+
+<%= link_to "Accept", connection_accept_url(@connection, :params => {:cid => @connectee2.id}) %>
+<%= link_to "Deny", connection_deny_url(@connection, :params => {:cid => @connectee2.id}) %>
+===================================
+If <%= @connectee1.name %> also agrees to exchange contact info, we'll send you an email with all the information.

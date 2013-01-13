@@ -7,12 +7,7 @@
 
 	# save attributes to connection #
 	def create
-		if user_signed_in?
-			@connection = Connection.new params[:connection].merge({connector_attributes:
-																									current_user.connections_params})
-		else
-			@connection = Connection.new params[:connection]
-		end
+		@connection = Connection.new params[:connection]
 		if @connection.save
 			redirect_to @connection
 		else

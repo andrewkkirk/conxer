@@ -43,21 +43,16 @@
 					<%= f.text_area :reason, rows: 6, id: "reason", placeholder: "Steve started Apple and is a big fan of simple, clean products. Bill founded Microsoft and is working on a powerful new operating system. You two should discuss opportunities to collaborate." %>
 		</div>
 		  <div class="span12">
-		  	<% if user_signed_in? %>
-		  		<h2>We'll make sure you get the credit</h2>
-		  			<p>Your connections will see it was you who created the introduction.</p>
-		  	<% else %>
-			  	<h2>And who should get the credit? <small>Hint: it's you</small></h2>
-						<%= f.fields_for :connector do |c| %>
-							<%= c.label :name, "Your Name" %>
-							<%= c.text_field :name%>
-							<%= c.label :email, "Your Email" %>
-							<%= c.email_field :email%>
-						<% end %>
-						<%= f.label :notify_connector_of_success, :class => "checkbox" do %>
-	 					<%= f.check_box :notify_connector_of_success %>Receive notification if both accept? <% end %>
-						<%= f.submit "Introduce", :class => "btn btn-primary"%>
-				<% end %>
+		  	<h2>And who should get the credit? <small>Hint: it's you</small></h2>
+					<%= f.fields_for :connector do |c| %>
+						<%= c.label :name, "Your Name" %>
+						<%= c.text_field :name%>
+						<%= c.label :email, "Your Email" %>
+						<%= c.email_field :email%>
+					<% end %>
+					<%= f.label :notify_connector_of_success, :class => "checkbox" do %>
+ 					<%= f.check_box :notify_connector_of_success %>Receive notification if both accept? <% end %>
+					<%= f.submit "Introduce", :class => "btn btn-primary"%>
 			<% end %>
 		  </div>
 		</div>

@@ -7,7 +7,6 @@ gem 'rails', '3.2.8'
 
 gem "factory_girl_rails", "~> 4.0"
 gem "activerecord-postgresql-adapter"
-gem 'devise'
 
 group :development do
 end
